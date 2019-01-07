@@ -1,1 +1,93 @@
 /* Insert your styles here */
+
+h1 {color: red}
+
+body{
+    background-image: url(../../../media/bg.jpg)
+    }
+
+
+/* Targeting navbar wrapper */
+
+
+
+
+.navbar{
+    width 100%;
+    max-width: inherit;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    
+    
+    
+}
+
+/* MENU STYLES */
+
+nav{
+    background: black;
+    padding-top: 1px;
+    
+    
+}
+
+ul li1:first-child{
+    margin-right: auto;
+    padding: 1px;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 1px
+    
+    
+}
+
+nav a1{
+    text-decoration: none;
+    text-align: center;
+    color: red;
+    display: block;
+    padding: 0px;
+    background-color: black;
+    
+}
+
+
+
+nav a{
+    text-decoration: none;
+    text-align: center;
+    color: red;
+    display: block;
+    padding: 0px;
+    background-color: black;
+    padding-top: 20px;
+    padding-right: 15px;
+}
+nav a:hover{
+    background-color:dimgrey;
+}
+
+/* Media Query for deteriming layout on differn't screen sizes */
+
+@media screen and (min-width: 768px){
+    
+    nav ul{
+        display: flex;
+        justify-content: flex-end;
+        
+    }   
+    
+
+    nav li{
+        flex 1 1 0;
+    }
+    
+} /* End media 768px */
+
+   
