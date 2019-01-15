@@ -15,6 +15,18 @@
     <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'> 
     <style> 
+        
+        html {
+            scroll-behavior: smooth;
+            }
+        
+        #NowShowing {
+            padding-top: 95px;
+        }
+        #Seats {
+            padding-top: 140px;
+        }
+       
         li1 {font-family: 'Nunito Sans';font-size: 50px; font-style: normal; font-weight: 700; }
         li {font-family: 'Staatliches';font-size: 30px; font-style: oblique; font-weight: 900;}
     </style>
@@ -39,27 +51,78 @@
            
         <ul>
             <li1><a1 href="#" class="logo">Lunardo<img src="../../media/Logo1.png" width="90" height="50" class="logo"/></a1></li1>
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#Movies">Movies</a></li>
-            <li><a href="#Contact">Contact</a></li>
-            <li><a href="#About">About</a></li>
+            <li><a href="#NowShowing">Now Showing</a></li>
+            <li><a href="#Seats">Seats and Prices</a></li>
+            <li><a href="#Booking">Booking</a></li>
+            <li><a href="#About">About Us</a></li>
         </ul>
      </nav>   
     </div>
 
     <main>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-      <article id='Website Under Construction'>
-    <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-        <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
-      </article>
+        
+        <div class="parrallax1">
+        <section class="NowShowing">
+            
+            <div class="grid-nowshowing" id="NowShowing">
+                
+            <div class="grid-item1">
+                <h1>Boy Erased</h1>
+                <img src="../../media/boyb.png" class="MoviePoster">
+                <h2>MA15+</h2>
+                </div>
+     
+            <div class="grid-item1">
+                <h1>The Girl in the Spiders Web</h1>
+                <img src="../../media/thegirlb.png" class="MoviePoster">
+                <h2>MA15+</h2>
+                </div>
+                
+            <div class="grid-item1">
+                <h1>A Star is Born</h1>
+                <img src="../../media/startb.png" class="MoviePoster">
+                <h2>MA15+</h2>
+                </div>
+            <div class="grid-item1">
+                <h1>Ralph Breaks the Internet</h1>
+                <img src="../../media//ralphb.jpg" class="MoviePoster">
+                <h2>PG</h2>
+                </div>
+            
+            </div>
+            
+        </section>
+        </div>
+        
+        <div class="parrallax2">
+        <section class="Seats">
+            
+            
+            <div>At Lunardo we know that to be fully immeresed in a cinema experience comfort is key. 
+                <br><br>
+                Therfore we have invested in the best high quality seating. </div>
+            
+             <div class="grid-seats" id="Seats">
+                
+            <div class="grid-item">
+                <h1>Standard Seating</h1>
+                <h3>Simplistic comfort with enough room for snacks.</h3>
+                <img src="../../media/stdseat.png" class="Seat">
+                </div>
+                
+            <div class="grid-item">
+                <h1>First Class Seating</h1>
+                <h3>The ultimate in comfort.</h3>
+                <img src="../../media/firstseat.png" class="MoviePoster">
+                </div>
+                
+           
+            
+            </div>
+            </section>
+        </div>
     </main>
-
+      
     <footer>
       <div>&copy;<script>
         document.write(new Date().getFullYear());

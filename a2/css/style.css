@@ -1,10 +1,25 @@
 /* Insert your styles here */
 
-h1 {color: red}
+h1 {
+    color: red;
+    
+}
 
-body{
-    background-image: url(../../../media/bg.jpg)
-    }
+h2 {
+    color: white;
+    font-size: 18px;
+}
+
+
+body {
+   
+    
+}
+
+
+
+
+
 
 
 /* Targeting navbar wrapper */
@@ -64,18 +79,134 @@ nav a{
     text-align: center;
     color: red;
     display: block;
-    padding: 0px;
     background-color: black;
     padding-top: 20px;
-    padding-right: 15px;
+    padding-right: 35px;
 }
 nav a:hover{
-    background-color:dimgrey;
+    background-color: rgba(100, 100, 100, .4);
 }
 
-/* Media Query for deteriming layout on differn't screen sizes */
 
-@media screen and (min-width: 768px){
+/* Top of Page Now Showing 
+CSS Grid layout */
+
+.parrallax1{
+    
+    background-image: url(../../../media/bg1.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.NowShowing h1 {
+    color: aliceblue;
+    
+}
+
+.NowShowing{
+    
+    text-align:center;
+    padding-top: 90px;
+    min-width: 800px;
+    height: 100vh;
+    min-height: 1200px;
+}
+
+.MoviePoster{
+    height: 400px;
+    width: auto;
+    
+}
+.grid-nowshowing{
+    
+    display: grid;
+    grid-gap: 2em;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    
+   
+    max-width: 1200px;
+    width: 95%;
+   
+   
+    
+}
+
+.grid-item1{
+    border-style: solid;
+    border-width: thin;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #CFC1C1;
+    background-color: rgba(200, 0, 0, .6);
+}
+
+/* Seatinh section
+--------------------------
+*/
+
+.parrallax2{
+    
+    background-image: url(../../../media/seats.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Seats{
+    
+    text-align: center;
+    
+    padding-top: 90px;
+    min-width: 800px;
+    height: 100vh;
+}
+
+.Seat{
+    height: 400px;
+    width: auto;
+    
+}
+.grid-seats {
+    
+    display: grid;
+    grid-gap: 1em;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    background-color:;
+    max-width: 1200px;
+    width: 95%;
+   
+   
+    
+}
+
+.grid-item{
+   
+    font-size: 20px;
+    text-align: center;
+}
+
+.Seats div {
+    font-size: 30px;
+    color: white;
+}
+
+
+
+
+/* Media Query for deteriming layout on differn't screen sizes
+
+Work in progress. Will need some fine tuning to fit  the menu bar in more efficently
+or possible use of a hamburger style
+
+----Note to self increase min width when finished testing grids---
+
+*/
+
+@media screen and (min-width: 1px){
     
     nav ul{
         display: flex;
@@ -88,6 +219,7 @@ nav a:hover{
         flex 1 1 0;
     }
     
+
 } /* End media 768px */
 
    
