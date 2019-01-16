@@ -1,9 +1,12 @@
 /* Insert your styles here */
 
-h1 {
-    color: red;
-    
-}
+li1 {font-family: 'Nunito Sans';font-size: 50px; font-style: normal; font-weight: 700; }
+        
+li {font-family: 'Staatliches';font-size: 30px; font-style: oblique; font-weight: 900;}
+
+h3 {font-family: 'Sanchez';}
+
+h4 {font-family: 'Sanchez';}
 
 h2 {
     color: white;
@@ -99,8 +102,8 @@ CSS Grid layout */
     background-repeat: no-repeat;
     background-size: cover;
 }
-.NowShowing h1 {
-    color: aliceblue;
+.NowShowing h3 {
+    color: white;
     
 }
 
@@ -138,11 +141,12 @@ CSS Grid layout */
     border-width: thin;
     font-size: 20px;
     text-align: center;
-    text-shadow: 1px 1px 1px #CFC1C1;
+    letter-spacing: 2px;
+    
     background-color: rgba(200, 0, 0, .6);
 }
 
-/* Seatinh section
+/* Seating section
 --------------------------
 */
 
@@ -153,6 +157,7 @@ CSS Grid layout */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 .Seats{
@@ -161,12 +166,16 @@ CSS Grid layout */
     
     padding-top: 90px;
     min-width: 800px;
-    height: 100vh;
+    min-height: 100vh;
+    letter-spacing: 2px;
+    
 }
 
 .Seat{
-    height: 400px;
+    max-height: 400px;
+    min-height:  200px;
     width: auto;
+    
     
 }
 .grid-seats {
@@ -178,20 +187,109 @@ CSS Grid layout */
     background-color:;
     max-width: 1200px;
     width: 95%;
-   
-   
-    
+
 }
+
 
 .grid-item{
    
-    font-size: 20px;
+    font-size: px;
     text-align: center;
+    
+}
+
+.grid-item:first-child{
+   
+    font-size: 20px;
+    
+    text-align: center;
+    grid-column: auto / span 2;
+    background-color: rgba(150, 0, 0, .2);
+        
+    
 }
 
 .Seats div {
-    font-size: 30px;
+    font-size: 20px;
     color: white;
+    
+    
+}
+
+/* Section 3 - Booking  */
+
+.parrallax3{
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.grid-booking{
+    display: grid;
+    grid-gap: 1em;
+    margin: 0 auto;
+    grid-template-columns: 1;
+    background-color: rgba(150, 0, 0, .2);
+    max-width: 800px;
+    width: 90%;
+    
+}
+
+.div Booking{
+    
+}
+.Booking h2{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+.Dropdowns label{
+    color: white;
+    font-size: 18px;
+    
+}
+
+/* Section 4 - About  */
+
+.parrallax4{
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.grid-about{
+    display: grid;
+    grid-gap: 1em;
+    margin: 0 auto;
+    grid-template-columns: 1;
+    background-color: rgba(255, 0, 0, 1);
+    max-width: 800px;
+    width: 90%;
+    
+}
+
+.About h2{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.About video{
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: auto;
+    height: 50%;
+    display: block;
+    
 }
 
 
