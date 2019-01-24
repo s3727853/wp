@@ -23,8 +23,8 @@
             scroll-behavior: smooth;
             }
         
-        #NowShowing {
-            padding-top: 95px;
+        #Top{
+            padding-top: 0px;
         }
         #Seats {
             padding-top: 140px;
@@ -45,15 +45,18 @@
       
     
     <header>
-                
+        
+       <div href="#Top" class="logo">Lunardo<img src="../../media/Logo1.png"/>
+       </div>
+       
     </header>
+      
 <!-- Navbar -->
       <div class="navbar">
         <nav>
            
         <ul>
-            <li1><a1 href="#" class="logo">Lunardo<img src="../../media/Logo1.png" width="90" height="50" class="logo"/></a1></li1>
-            <li><a href="#NowShowing">Now Showing</a></li>
+            <li><a href="#Top">Now Showing</a></li>
             <li><a href="#Seats">Seats and Prices</a></li>
             <li><a href="#Booking">Booking</a></li>
             <li><a href="#About">About Us</a></li>

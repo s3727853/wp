@@ -1,1 +1,368 @@
-/* Insert your styles here */
+/* Font Styling for a few components*/
+
+li1 {font-family: 'Nunito Sans';font-size: 50px; font-style: normal; font-weight: 700; }
+        
+li {font-family: 'Staatliches';font-size: 30px; font-style: oblique; font-weight: 900;}
+
+h3, p {font-family: 'Sanchez';}
+
+h4 {font-family: 'Sanchez';}
+
+h2 {
+    color: white;
+    font-size: 18px;
+}
+
+/*Logo */
+
+header{
+    background-color: black;
+}
+
+.logo{
+    text-decoration: none;
+    text-align: left;
+    color: red;
+    background-color: black;
+    z-index: 2;
+    position: relative;
+}
+.logo img{
+    width: 90px;
+    height: 50px;
+}
+
+
+/* Targeting navbar wrapper */
+
+.navbar{
+    width 100%;
+    max-width: inherit;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;   
+}
+
+/* MENU STYLES */
+
+nav{
+    background: black;
+    padding-top: 1px;  
+}
+
+
+nav ul{
+    list-style-type: none;
+    padding: 1px; 
+}
+
+
+
+nav a{
+    text-decoration: none;
+    text-align: center;
+    color: red;
+    display: block;
+    background-color: black;
+    padding: 10px;
+    margin-right: 10px;
+    letter-spacing: 2px;
+}
+nav a:hover{
+    background-color: rgba(100, 100, 100, .4);
+}
+
+
+/* Top of Page Now Showing 
+   CSS Grid layout */
+
+.parrallax1{
+    background-image: url(../../../media/bg1.jpg);
+    background-attachment: fixed;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.NowShowing h3 {
+    color: white;   
+}
+
+.NowShowing{
+    
+    text-align:center;
+    padding-top: 90px;
+    min-width: 800px;
+    height: 100vh;
+    min-height: 1200px;
+}
+
+.MoviePoster{
+    height: 400px;
+    width: auto;
+ 
+    
+    
+}
+.grid-nowshowing{
+    
+    display: grid;
+    grid-gap: 2em;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width: 1200px;
+    width: 95%;
+    
+}
+
+.grid-item1{
+    border-style: solid;
+    border-width: thin;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    background-color: rgba(200, 0, 0, .6);
+    cursor: grab;
+    
+}
+/* More Info Button */
+
+.Button1{
+    background-color: black;
+    border: 2px solid grey;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+/* Modal Functions */
+
+.modalDialog {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.1);
+	z-index: 99;
+	opacity:0;
+	transition: opacity 300ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 800px;
+   
+	position: relative;
+	margin: 7% auto;
+	padding: 10px 10px 10px 20px;
+	border-radius: 10px;
+	background: black;
+	
+}
+
+.modalDialog p{
+    color: white;
+}
+
+.close {
+	background: grey;
+	color: white;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 12px;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: red; }
+
+.button {
+  background-color: red;
+  border: solid;
+  color: rgb(200, 0, 0, .8);
+  padding: 2px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgb(180, 0, 0, .6);
+}
+ 
+
+
+/* Seating section
+--------------------------
+*/
+
+.parrallax2{
+    
+    background-image: url(../../../media/seats.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.Seats{
+    
+    text-align: center;
+    padding-top: 90px;
+    min-width: 800px;
+    min-height: 100vh;
+    letter-spacing: 2px;
+    
+}
+
+.Seat{
+    max-height: 400px;
+    min-height: 200px;
+    width: auto;
+    
+    
+}
+.grid-seats {
+    
+    display: grid;
+    grid-gap: 1em;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    background-color:;
+    max-width: 1200px;
+    width: 95%;
+
+}
+
+
+.grid-item{
+   
+    font-size: px;
+    text-align: center;
+    
+}
+
+.grid-item:first-child{
+   
+    font-size: 20px;
+    
+    text-align: center;
+    grid-column: auto / span 2;
+    background-color: rgba(150, 0, 0, .2);
+}
+
+.Seats div {
+    font-size: 20px;
+    color: white;
+}
+
+/* Section 3 - Booking  */
+
+.parrallax3{
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.grid-booking{
+    display: grid;
+    grid-gap: 1em;
+    margin: 0 auto;
+    grid-template-columns: 1;
+    background-color: rgba(150, 0, 0, .2);
+    max-width: 800px;
+    width: 90%;
+    
+}
+
+.Booking h2{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+.Dropdowns label{
+    color: white;
+    font-size: 18px;
+    
+}
+
+/* Section 4 - About  */
+
+.parrallax4{
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+
+.About h2{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+    
+}
+
+.About video{
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: 50vh;
+    
+    display: block;
+}
+
+
+
+
+/* Media Query for deteriming layout on differn't screen sizes
+
+Work in progress. Will need some fine tuning to fit  the menu bar in more efficently
+or possible use of a hamburger style
+
+----Note to self increase min width when finished testing grids---
+
+*/
+
+@media screen and (min-width: 1px){
+    
+    nav ul{
+        display: flex;
+        justify-content: flex-end;
+        
+    }   
+    
+
+    nav li{
+        flex 1 1 0;
+    }
+    
+
+} /* End media 768px */
+
+   
