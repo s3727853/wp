@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Assignment 2</title>
+    <title>Assignment 3</title>
     
-    Keep wireframe.css for debugging, add your css to style.css 
+    <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
      
     <link id='stylecss' type="text/css" rel="stylesheet" href="css/style.css">
@@ -23,7 +23,7 @@
             scroll-behavior: smooth;
             }
         
-        #Top{
+        #NowShowing {
             padding-top: 0px;
         }
         #Seats {
@@ -46,16 +46,16 @@
     
     <header>
         
-       <div href="#Top" class="logo">Lunardo<img src="../../media/Logo1.png"/>
-       </div>
-       
+        <li1><a1 href="#Top" class="logo">Lunardo<img src="../../media/Logo1.png" width="90" height="50" class="logo"/></a1></li1>
+        
+                
     </header>
-      
 <!-- Navbar -->
       <div class="navbar">
         <nav>
            
         <ul>
+            
             <li><a href="#Top">Now Showing</a></li>
             <li><a href="#Seats">Seats and Prices</a></li>
             <li><a href="#Booking">Booking</a></li>
@@ -69,20 +69,21 @@
         <div class="parrallax1">
         <section class="NowShowing">
             <div class="grid-nowshowing" id="NowShowing">
-            <div class="grid-item1">
-                <br>
+            <div class="grid-item1" onclick="location.href='#openModal'">
+                
                 <!--Movie Field 1 -->
                 <h3>Boy Erased</h3>
+                <br>
                 <img src="../../media/boyb.png" class="MoviePoster">
             <!-- START OF MODAL BOX -->
-                <a href="#openModal"><h2>More Info</h2></a>
+                <a href="#openModal"><button class="Button1">More Info</button></a>
                 <div id="openModal" class="modalDialog">
 	               <div>
 		              <a href="#close" title="Close" class="close">X</a>
 		              <h3>Boy Erased - MA15+</h3>
 		              <p>The son of a Baptist preacher is forced to participate in a church-supported gay conversion program after being forcibly outed to his parents.</p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-B71eyB_Onw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                       <br>
+                       
                        <p>Play Times</p>
                        <p>Wed-Fri 12pm<br>Sat-Sun 9pm</p><br>
                        <a href="#Booking" class="button"><p>Book Tickets</p></a>
@@ -90,19 +91,19 @@
                 </div>
                 <!-- END OF MODAL BOX -->
                 </div>
-            <div class="grid-item1">
+            <div class="grid-item1" onclick="location.href='#openModal1'">
                 <!--Movie Field 2 -->
                 <h3>The Girl in the Spiders Web</h3>
                 <img src="../../media/thegirlb.png" class="MoviePoster">
                 <!-- START OF MODAL BOX -->
-                <a href="#openModal1"><h2>More Info</h2></a>
+                <a href="#openModal1"><button class="Button1">More Info</button></a>
                 <div id="openModal1" class="modalDialog">
 	               <div>
 		              <a href="#close" title="Close" class="close">X</a>
 		              <h3>The Girl in the Spiders Web - MA15+</h3>
 		              <p>Young computer hacker Lisbeth Salander and journalist Mikael Blomkvist find themselves caught in a web of spies, cybercriminals and corrupt government officials.</p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/XKMSP9OKspQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                       <br>
+                       
                        <p>Play Times</p>
                        <p>Wed-Fri 9pm<br>Sat-Sun 6pm</p><br>
                        <a href="#Booking" class="button"><p>Book Tickets</p></a>
@@ -112,20 +113,21 @@
                 <!-- END OF MODAL BOX -->
                 </div>
                 
-            <div class="grid-item1">
-                <br>
+            <div class="grid-item1" onclick="location.href='#openModal2'">
+               
                 <!--Movie Field 1 -->
                 <h3>A Star is Born</h3>
+                <br>
                 <img src="../../media/startb.png" class="MoviePoster">
                  <!-- START OF MODAL BOX -->
-                <a href="#openModal2"><h2>More Info</h2></a>
+                <a href="#openModal2"><button class="Button1">More Info</button></a>
                 <div id="openModal2" class="modalDialog">
 	               <div>
 		              <a href="#close" title="Close" class="close">X</a>
 		              <h3>A Star is Born - MA15+</h3>
 		              <p>A musician helps a young singer find fame, even as age and alcoholism send his own career into a downward spiral. </p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/nSbzyEJ8X9E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                       <br>
+                       
                        <p>Play Times</p>
                        <p>Mon-Tue 6pm<br>Sat-Sun 3pm</p><br>
                        <a href="#Booking" class="button"><p>Book Tickets</p></a>
@@ -133,14 +135,14 @@
                 </div>
                 <!-- END OF MODAL BOX -->
                 </div>
-            <div class="grid-item1">
+            <div class="grid-item1" onclick="location.href='#openModal3'">
                 <!--Movie Field 1 -->
                 <h3>Ralph Breaks the Internet</h3>
                 <img src="../../media//ralphb.jpg" class="MoviePoster">
                 
                  <!-- START OF MODAL BOX -->
                 
-                <a href="#openModal3"><h2>More Info</h2></a>
+                <a href="#openModal3"><button class="Button1">More Info</button></a>
 
                 <div id="openModal3" class="modalDialog">
 	               <div>
@@ -148,9 +150,9 @@
 		              <h3>Ralph Breaks the Internet - PG</h3>
 		              <p>Six years after the events of "Wreck-It Ralph," Ralph and Vanellope, now friends, discover a wi-fi router in their arcade, leading them into a new adventure.</p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/T73h5bmD8Dc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                       <br>
+                       
                        <p>Play Times</p>
-                       <p>Mon-Tue 12pm<br>Sat-Sun12pm</p><br>
+                       <p>Mon-Tue 12pm<br>Sat-Sun12 pm</p><br>
                        <a href="#Booking" class="button"><p>Book Tickets</p></a>
 	               </div>
                 </div>
@@ -184,7 +186,7 @@
                 <div class="grid-item">
                     <h3>First Class Seating</h3>
                     <h4>Luxurios seating for the ultimate cinema experience</h4>
-                    <img src="../../media/firstseat.png" class="MoviePoster">
+                    <img src="../../media/firstseat.png" class="Seat">
                 </div>
             </div>
         </section>
