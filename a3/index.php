@@ -1,6 +1,19 @@
 <!DOCTYPE html>
+<?php
+      require_once("tools.php");
+?>
 <html lang='en'>
   <head>
+      
+      <script src='../wireframe.js'></script>
+    <script src="sitetools.js"></script>
+      
+      
+      <!-- Navbar scroll effects in javascript. Highlight active link/section -->
+    <script>
+        window.addEventListener('scroll', pageScroll);
+    </script>    
+      
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Assignment 3</title>
@@ -39,33 +52,38 @@
     </style>
       
     <script src='../wireframe.js'></script>
+    <script src="sitetools.js"></script>
+    
   </head>
 
-  <body>
+  <body onload="countten()">
       
     
     <header>
+        
+        
+      <div class="navbar">
+      <nav>
+        <a href="#Top">Now Showing</a>
+        <a href="#Seats">Seats and Prices</a>
+        <a href="#Booking">Booking</a>
+        <a href="#About">About Us</a>
+       </nav>
+      </div>
         
         <li1><a1 href="#Top" class="logo">Lunardo<img src="../../media/Logo1.png" width="90" height="50" class="logo"/></a1></li1>
         
                 
     </header>
 <!-- Navbar -->
-      <div class="navbar">
-        <nav>
-           
-        <ul>
-            
-            <li><a href="#Top">Now Showing</a></li>
-            <li><a href="#Seats">Seats and Prices</a></li>
-            <li><a href="#Booking">Booking</a></li>
-            <li><a href="#About">About Us</a></li>
-        </ul>
-     </nav>   
-    </div>
-
+      
+      
+     
     <main>
+          
         <!--Main Page -->
+        <article id="MainPage">
+            
         <div class="parrallax1">
         <section class="NowShowing">
             <div class="grid-nowshowing" id="NowShowing">
@@ -161,8 +179,12 @@
             </div>
         </section>
         </div>
+            </article>
         
         <!-- Seating Section -->
+        
+        <article id="Seating">
+            
         <div class="parrallax2">
         <section class="Seats">
             
@@ -191,8 +213,10 @@
             </div>
         </section>
         </div>
+        </article>
         
         <!-- Booking Section -->
+        <article id="BookingSection">
         <div class="parrallax3">
         <section class="Booking">
             <!-- Hard coded padding will nneed to be removed and done in CSS -->
@@ -204,6 +228,9 @@
                             
                 <!-- Booking Selection Section. I imagine this will need to be redone when we cover Javascript component in assignment 3.
                 I have left this as is with some hardcoded breaks for time being -->
+                            
+                             
+                            
                             <form method='post' action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" >
                     
                             <select name="movie[id]" type="hidden">
@@ -233,95 +260,29 @@
                                 <option value="9">9:00pm</option>
                             </select>
                             <br><br>
-                            <select name="seats[STA]">
+                            <select name="seats[STA]" class="ten">
                                 <option value="">Standard Adult</option>
-                                <option value="">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select>
-
-                            <select name="seats[STP]">
+                            <select name="seats[STP]" class="ten">
                                 <option value="">Standard Concession</option>
-                                <option value="">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select>    
 
-                            <select name="seats[STC]">
+                            <select name="seats[STC]" class="ten">
                                 <option value="">Standard Child</option>
-                                <option value="">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select> 
                             <br><br>
-                            <select name="seats[FCA]">
+                            <select name="seats[FCA]" class="ten">
                                 <option value="">First Class Adult</option>
-                                <option value="">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select>    
 
-                            <select name="seats[FCP]">
+                            <select name="seats[FCP]" class="ten">
                                 <option value="">First Class Concession</option>
-                                <option value="">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select>    
 
-                            <select name="seats[FCC]">
+                            <select name="seats[FCC]" class="ten">
                                 <option value="">First Class Child</option>
-                                <option value="">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select> 
+                                
                     <br><br>
                     <label>Name:</label><input type="text" name="cust[name]">
                     <label>Email:</label><input type="email" name="cust[email]">
@@ -338,8 +299,11 @@
             </div>
             </section>
             </div>
+            </article>
         
       <!-- About section -->
+        <article id="About">
+            
         <div class="parrallax4">
             <section class="About" id="About"> 
                 <div class="grid-About" id="About">
@@ -355,7 +319,9 @@
                 </div>
             </section>
         </div>
+        </article>
     </main>
+        
       
     <footer>
         <br>
@@ -364,8 +330,26 @@
         document.write(new Date().getFullYear());
       </script>Jack Edwards - S3727853. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button>
+    
+          
+    </div>
     </footer>
+      
+    <div class="DebugArea">
+        
+        
+    <form method="post" action="index.php" id="debug" onsubmit="printCode()">
+        <input type="submit" name="Testing POST print function">
+      </form>
+    
+   <?php 
+            
+          printCode($_GET);
+           
+        ?>
+        
+        </div>
 
   </body>
 </html>

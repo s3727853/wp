@@ -2,7 +2,7 @@
 
 li1 {font-family: 'Nunito Sans';font-size: 50px; font-style: normal; font-weight: 700; }
         
-li {font-family: 'Staatliches';font-size: 30px; font-style: oblique; font-weight: 900;}
+li2 {font-family: 'Staatliches';font-size: 30px; font-style: oblique; font-weight: 900;}
 
 h3, p {font-family: 'Sanchez';}
 
@@ -11,6 +11,12 @@ h4 {font-family: 'Sanchez';}
 h2 {
     color: white;
     font-size: 18px;
+}
+
+/* Overide user agent stylesheet */
+
+body{
+margin: 0px;
 }
 
 /*Logo */
@@ -24,7 +30,7 @@ header{
     text-align: left;
     color: red;
     background-color: black;
-    z-index: 2;
+    z-index: 1;
     position: relative;
 }
 .logo img{
@@ -36,43 +42,57 @@ header{
 /* Targeting navbar wrapper */
 
 .navbar{
-    width 100%;
-    max-width: inherit;
-    margin: 0 auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;   
+    display: flex;
+    justify-content: flex-end;
+    background: black; 
+    padding-top: 5px;
+    
+   
+    
+
+      
 }
 
 /* MENU STYLES */
 
 nav{
-    background: black;
-    padding-top: 1px;  
+    background: black; 
+    position: fixed;
+   
 }
 
-
-nav ul{
-    list-style-type: none;
-    padding: 1px; 
-}
 
 
 
 nav a{
+    
+    display: inline;
     text-decoration: none;
-    text-align: center;
     color: red;
-    display: block;
     background-color: black;
-    padding: 10px;
-    margin-right: 10px;
+    font-family: 'Staatliches';
+    font-style: oblique; 
+    font-weight: 900;
+    font-size: 35px;
+    align-content: center;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     letter-spacing: 2px;
+    
+    
 }
 nav a:hover{
     background-color: rgba(100, 100, 100, .4);
 }
+
+/* State set by window position */
+
+a.active{
+    box-shadow: 0 0 10px 5px #ffdb00;
+    transition: .4s;
+}
+
 
 
 /* Top of Page Now Showing 
@@ -337,8 +357,16 @@ nav a:hover{
     display: block;
 }
 
+/* Debug Area */
 
-
+.DebugArea {
+    
+    border: solid;
+    margin: 4px;
+    border-width: thin;
+    background-color: azure;
+    
+}
 
 /* Media Query for deteriming layout on differn't screen sizes
 

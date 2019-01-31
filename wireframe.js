@@ -1,5 +1,5 @@
 function toggleWireframe() {
-  
+  console.log("WireFrame Scrip Called");
   // get references to styleshets with preset id attributes
   let wfs = document.getElementById("wireframecss");
   let sts = document.getElementById("stylecss");
