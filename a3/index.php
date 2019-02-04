@@ -66,7 +66,7 @@
       <nav>
         <a href="#Top">Now Showing</a>
         <a href="#Seats">Seats and Prices</a>
-        <a href="#Booking">Booking</a>
+        <a href="#BookingSection">Booking</a>
         <a href="#About">About Us</a>
        </nav>
       </div>
@@ -104,7 +104,7 @@
                        
                        <p>Play Times</p>
                        <p>Wed-Fri 12pm<br>Sat-Sun 9pm</p><br>
-                       <a href="#Booking" class="button"><p>Book Tickets</p></a>
+                       <a href="#BookingSection" class="button" onclick= "bookingForm('3')"><p>Book Tickets</p></a>
 	               </div>
                 </div>
                 <!-- END OF MODAL BOX -->
@@ -124,7 +124,7 @@
                        
                        <p>Play Times</p>
                        <p>Wed-Fri 9pm<br>Sat-Sun 6pm</p><br>
-                       <a href="#Booking" class="button"><p>Book Tickets</p></a>
+                       <a href="#BookingSection" class="button" onclick="bookingForm('0')"><p>Book Tickets</p></a>
                        
 	               </div>
                 </div>
@@ -148,7 +148,7 @@
                        
                        <p>Play Times</p>
                        <p>Mon-Tue 6pm<br>Sat-Sun 3pm</p><br>
-                       <a href="#Booking" class="button"><p>Book Tickets</p></a>
+                       <a href="#BookingSection" class="button" onclick="bookingForm('1')"><p>Book Tickets</p></a>
 	               </div>
                 </div>
                 <!-- END OF MODAL BOX -->
@@ -156,7 +156,7 @@
             <div class="grid-item1" onclick="location.href='#openModal3'">
                 <!--Movie Field 1 -->
                 <h3>Ralph Breaks the Internet</h3>
-                <img src="../../media//ralphb.jpg" class="MoviePoster">
+                <img src="../../media/ralphb.jpg" class="MoviePoster">
                 
                  <!-- START OF MODAL BOX -->
                 
@@ -171,7 +171,7 @@
                        
                        <p>Play Times</p>
                        <p>Mon-Tue 12pm<br>Sat-Sun12 pm</p><br>
-                       <a href="#Booking" class="button"><p>Book Tickets</p></a>
+                       <a href="#BookingSection" class="button" onclick="bookingForm('2')"><p>Book Tickets</p></a>
 	               </div>
                 </div>
                  <!-- END OF MODAL BOX -->
@@ -216,87 +216,85 @@
         </article>
         
         <!-- Booking Section -->
+        
         <article id="BookingSection">
-        <div class="parrallax3">
+        <div class="parrallax3">  
         <section class="Booking">
-            <!-- Hard coded padding will nneed to be removed and done in CSS -->
-            <br><br><br><br><br><br><br><br><br>
-            <div class="Booking" id="Booking">
-                <h2>Bookings</h2>
-                    <div class="grid-booking">
-                        <div class="Dropdowns">
+            <h2>Bookings</h2>
+           
+        
+                
+                
+                        
+                        <div class="Dropdowns" >
                             
-                <!-- Booking Selection Section. I imagine this will need to be redone when we cover Javascript component in assignment 3.
-                I have left this as is with some hardcoded breaks for time being -->
                             
-                             
                             
                             <form method='post' action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" >
-                    
-                            <select name="movie[id]" type="hidden">
+                            <label>Movie</label> 
+                            <select name="movie[id]" type="hidden" id="MovieBox" onchange="populate(this.id, 'mvDay')">
                             <option value="">Select Movie</option>
                             <option value="ACT">Girl in the Spiders Web</option>
                             <option value="RMC">A Star is Born</option>
-                            <option value="ANH ">Ralph Breaks the Internet</option>
+                            <option value="ANM">Ralph Breaks the Internet</option>
                             <option value="AHF">A Boy Erased</option>
                             </select>
+                            <label>Day</label>
+                            <select name="movie[day]" type="hidden" id="mvDay" onchange="pickTime(this.value)">
+                            </select>
+                            <label>Time</label>
+                            <select name="movie[hour]" type="hidden" id="mvHour" >
+                            </select>
+                                <label>Tickets</label>
+                            <select name="seats[STA]" class="ten" id="STA" onchange="seatSelected()">
+                                <option value="0">Standard Adult</option>
+                            </select>
+                            <select name="seats[STP]" class="ten" id="STP" onchange="seatSelected()">
+                                <option value="0">Standard Concession</option>
+                            </select>    
+
+                            <select name="seats[STC]" class="ten" id="STC" onchange="seatSelected()">
+                                <option value="0">Standard Child</option>
+                            </select> 
+                           
+                            <select name="seats[FCA]" class="ten" id="FCA" onchange="seatSelected()">
+                                <option value="0">First Class Adult</option>
+                            </select>    
+
+                            <select name="seats[FCP]" class="ten" id="FCP" onchange="seatSelected()">
+                                <option value="0">First Class Concession</option>
+                            </select>    
+
+                            <select name="seats[FCC]" class="ten" id="FCC" onchange="seatSelected()">
+                                <option value="0">First Class Child</option>
+                            </select> 
                     
-                            <select name="movie[day]" type="hidden">
-                                <option value="">Select Day</option>
-                                <option value="MON">Monday</option>
-                                <option value="TUE">Tuesday</option>
-                                <option value="WED ">Wednesday</option>
-                                <option value="THU">Thursday</option>
-                                <option value="FRI">Friday</option>
-                                <option value="SAT">Saturday</option>
-                                <option value="SUN">Sunday</option>
-                            </select>
-
-                            <select name="movie[hour]" type="hidden">
-                                <option value="">Select Time</option>
-                                <option value="12">12:00pm</option>
-                                <option value="3">3:00pm</option>
-                                <option value="6">6:00pm</option>
-                                <option value="9">9:00pm</option>
-                            </select>
-                            <br><br>
-                            <select name="seats[STA]" class="ten">
-                                <option value="">Standard Adult</option>
-                            </select>
-                            <select name="seats[STP]" class="ten">
-                                <option value="">Standard Concession</option>
-                            </select>    
-
-                            <select name="seats[STC]" class="ten">
-                                <option value="">Standard Child</option>
-                            </select> 
-                            <br><br>
-                            <select name="seats[FCA]" class="ten">
-                                <option value="">First Class Adult</option>
-                            </select>    
-
-                            <select name="seats[FCP]" class="ten">
-                                <option value="">First Class Concession</option>
-                            </select>    
-
-                            <select name="seats[FCC]" class="ten">
-                                <option value="">First Class Child</option>
-                            </select> 
                                 
-                    <br><br>
+                                
+                                
+                    <div class="custDetails">            
+                                
                     <label>Name:</label><input type="text" name="cust[name]">
                     <label>Email:</label><input type="email" name="cust[email]">
-                    <br>
+
                     <label>Mobile:</label><input type="number" maxlength="10" minlenght="10" name="cust[mobile]">
                 
                     <label>Credit Card:</label><input type="text" name="cust[card]">
                     <label>Expiry:</label><input type="month" name="cust[expiry]">
-                    <br>
-                    <input type="submit">
-                </form>    
+
+                                
+                                
+                    <label>Total</label><input type="text" readonly id="priceBox">
+                    <input type="submit" class="submit" value="Confirm Booking">
+                </div> 
+                                
+                                
+                </form> 
+                            
+                            
                 </div>
-                </div>
-            </div>
+              
+            
             </section>
             </div>
             </article>

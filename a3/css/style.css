@@ -17,6 +17,11 @@ h2 {
 
 body{
 margin: 0px;
+    background-color: black;
+}
+
+article{
+    
 }
 
 /*Logo */
@@ -304,28 +309,102 @@ a.active{
     height: 100vh;
 }
 
-.grid-booking{
-    display: grid;
-    grid-gap: 1em;
-    margin: 0 auto;
-    grid-template-columns: 1;
-    background-color: rgba(150, 0, 0, .2);
-    max-width: 800px;
-    width: 90%;
+.Booking h2{
+    text-align: center;
+    font-size: 35px;
+    padding-top: 50px;
+    font-family: 'Sanchez';
+    letter-spacing: 2px;
+}
+
+.Booking{
+
+    margin: auto;
+    width: 100%;
+    border-radius: 25px;
+    
+  
+}
+
+.Dropdowns{
+    
+    
+    
+    column-count: 2;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .9);
+    max-width: 80%;
+    margin: 2rem auto;
+
+    padding: 3rem;
+    font-family: 'Sanchez';
+    font-weight: 600;
+    letter-spacing: 2px
+        
+    
+    
     
 }
 
-.Booking h2{
-    text-align: center;
-    color: white;
-    font-size: 25px;
+
+
+.Dropdowns select{
+    
+    
+    
+    font-family: 'Sanchez';
+    font-size: 20px;
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .Dropdowns label{
-    color: white;
-    font-size: 18px;
+    display: block;
+    color: black;
+    font-size: 25px;
+    padding: 2px;
+    width: 200px;
     
 }
+
+
+
+    
+
+
+.Dropdowns input{
+    border-radius: 5px;
+    width: 60%;
+    height: 25px;
+    font-family: 'Sanchez';
+    font-size: 20px;
+    padding-bottom: 5px;
+    background-color: lightgrey;
+    
+}
+
+.Dropdowns .submit{
+    
+    width: 50%;
+    margin-left: 35px;
+    font-size: 20px;
+    font-family: 'Sanchez';
+    font-weight: 900;
+    letter-spacing: 4px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    background-color: rgba(0, 250, 0, .1);
+    box-shadow: 20px;
+    
+    
+    
+    
+   
+    
+    
+}
+
 
 /* Section 4 - About  */
 
