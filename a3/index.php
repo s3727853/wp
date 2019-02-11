@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
+      
       require_once("tools.php");
+
+      if(isset($_POST['submit'])){
+      order();
+      }
 ?>
 <html lang='en'>
   <head>
@@ -228,11 +233,10 @@
                         
                         <div class="Dropdowns" >
                             
-                            
-                            
-                            <form method='post' action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" >
+
+                            <form method='post' action="" value='submit'>
                             <label>Movie</label> 
-                            <select name="movie[id]" type="hidden" id="MovieBox" onchange="populate(this.id, 'mvDay')">
+                            <select name="movie[id]" type="hidden" id="MovieBox" required onchange="populate(this.id, 'mvDay')">
                             <option value="">Select Movie</option>
                             <option value="ACT">Girl in the Spiders Web</option>
                             <option value="RMC">A Star is Born</option>
@@ -240,10 +244,10 @@
                             <option value="AHF">A Boy Erased</option>
                             </select>
                             <label>Day</label>
-                            <select name="movie[day]" type="hidden" id="mvDay" onchange="pickTime(this.value)">
+                            <select name="movie[day]" type="hidden" id="mvDay" required onchange="pickTime(this.value)">
                             </select>
                             <label>Time</label>
-                            <select name="movie[hour]" type="hidden" id="mvHour" >
+                            <select name="movie[hour]" type="hidden" id="mvHour" required>
                             </select>
                                 <label>Tickets</label>
                             <select name="seats[STA]" class="ten" id="STA" onchange="seatSelected()">
@@ -274,18 +278,18 @@
                                 
                     <div class="custDetails">            
                                 
-                    <label>Name:</label><input type="text" name="cust[name]">
-                    <label>Email:</label><input type="email" name="cust[email]">
+                    <label>Name:</label><input type="text" name="cust[name]" required >
+                    <label>Email:</label><input type="email" name="cust[email]" required >
 
-                    <label>Mobile:</label><input type="number" maxlength="10" minlenght="10" name="cust[mobile]">
+                    <label>Mobile:</label><input type="number" maxlength="10" minlenght="10" name="cust[mobile]" required >
                 
-                    <label>Credit Card:</label><input type="text" name="cust[card]">
-                    <label>Expiry:</label><input type="month" name="cust[expiry]">
+                    <label>Credit Card:</label><input type="text" name="cust[card]" required >
+                    <label>Expiry:</label><input type="month" name="cust[expiry]" required >
 
                                 
-                                
+                            
                     <label>Total</label><input type="text" readonly id="priceBox">
-                    <input type="submit" class="submit" value="Confirm Booking">
+                    <input type="submit" class="submit" name="submit" value="Confirm Booking">
                 </div> 
                                 
                                 
@@ -298,6 +302,8 @@
             </section>
             </div>
             </article>
+        
+    
         
       <!-- About section -->
         <article id="About">
@@ -335,14 +341,14 @@
     </footer>
       
     <div class="DebugArea">
-        
-        
-    <form method="post" action="index.php" id="debug" onsubmit="printCode()">
-        <input type="submit" name="Testing POST print function">
-      </form>
     
    <?php 
-            
+        
+         var_dump($_POST['movie']);    
+        //var_dump($_SESSION[cart]);
+        
+          echo "<h1>-------- Post Data --------</h1>";
+          preShow($_POST);
           printCode($_GET);
            
         ?>

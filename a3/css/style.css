@@ -13,6 +13,18 @@ h2 {
     font-size: 18px;
 }
 
+/* test section */
+
+.testPHP {
+    background-color: white;
+    padding: 50px;
+}
+
+
+
+
+
+
 /* Overide user agent stylesheet */
 
 body{
