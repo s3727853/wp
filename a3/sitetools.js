@@ -12,7 +12,6 @@ var playTime;
 function countten() 
 {
     console.log("Count Ten seat select funct called from Body.");
-    
     var boxes = document.getElementsByClassName("ten");
     for(var seatitems = 0; seatitems <=5; seatitems++)
         {
@@ -25,19 +24,34 @@ function countten()
                 el.value = opt;
                 select.appendChild(el);
                 }
-        }
-    }
+        } 
+//Set the min value of card expiry box (can;t be current month)    
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+2; 
+    var yyyy = today.getFullYear();
+    if(dd<10) 
+        {
+            dd='0'+dd;
+        } 
+
+    if(mm<10) 
+        {
+            mm='0'+mm;
+        } 
+    today = yyyy+'-'+mm;
+    let monthBox = document.getElementById("expiry");
+    monthBox.setAttribute("min", today);
+}
 
 // Shows Current section active by highlighting appropriate navbar link    
 function pageScroll()
 {
-            // console.clear();
             let navlinks = document.getElementsByTagName("nav")[0].children;
             let articles = document.getElementsByTagName("main")[0].children;
             last = articles[articles.length - 1].getBoundingClientRect().top;
             
             if (last <= 0) {
-                // console.log('last');
                 navlinks[navlinks.length - 1].classList.add("active");
                 for(j = 0; j < navlinks.length - 1; j++)
                     navlinks[j].classList.remove("active");
@@ -49,7 +63,7 @@ function pageScroll()
                     prev = articles[i - 1].getBoundingClientRect().top;
                     next = articles[i].getBoundingClientRect().top;
                     log = prev + ' ' + next;
-                    
+                
                     if(prev <= 80 && next > 80) {
                         log += ' <------ ' + (i - 1);
                         navlinks[i - 1].classList.add("active");
@@ -59,7 +73,6 @@ function pageScroll()
                         log += ' xxx ';
                         navlinks[i - 1].classList.remove("active");
                     }
-                    // console.log(log);
                 }
             }
         }
@@ -79,57 +92,40 @@ var slot2 = ['WED|Wednesday', 'THU|Thursday', 'FRI|Friday'];
 var slot3 = ['SAT|Saturday', 'SUN|Sunday'];
 
 
-// This funntion is triggered from the modal box. It sends in the movie info.
-// Movie info is then sent to the movie option box. The option boxes on change event is forced
-// to trigger the onchange event which populates the days list.
+// This funntion is triggered from the modal box. It sends the selected movie ID into booking form
+// As the rest of the form is generated from on change events we havto manualy dispatch an onchange event
 
 function bookingForm(Movie){
-    
     let element = document.getElementById('MovieBox');
     let event = new Event('change');
     element.value = movieArray[Movie][0];
+    //On change is dispatched
     element.dispatchEvent(event);
-
 }
 
 // Populates Movie day field on an onchange event from Movie selection box
 // The event passes in the movie Value and the ID of the days box
-
 function populate(id1, id2){
     var id1 = document.getElementById(id1);
     var id2 = document.getElementById(id2);
-    
-  //  var time = document.getElementById("mvHour");
- //   time.innerHTML = "";
-    
-    
     id2.innerHTML = "";
     let newOption = document.createElement("option");
     newOption.innerHTML = "Select Day";
     id2.options.add(newOption);
     let newOption1 = document.createElement("option");
     
-  //  newOption1.innerHTML = "Select Time";
-  //  time.options.add(newOption1);
-   
-    
     if(id1.value == "ACT"){
-        movieArrayStart = 0;
-        
+        movieArrayStart = 0;  
     }
     else if (id1.value == "RMC"){
         movieArrayStart = 1;
-    
     }
     else if (id1.value == "ANM"){
-        movieArrayStart = 2;
-        
+        movieArrayStart = 2;  
     }
     else if (id1.value == "AHF"){
-        movieArrayStart = 3;
-        
+        movieArrayStart = 3;    
     }
-    
         if(movieArray[movieArrayStart][2] != "NA"){
             
             for(let days in slot1){
@@ -159,26 +155,16 @@ function populate(id1, id2){
                 newOption.innerHTML = pair[1];
                 id2.options.add(newOption);
             }
-            
             }
-      
         }
-        
-
-
-
-    
-    
-    
-
+// Populates the availabe times the movie is playing. Calculated from previously selected fields
+// and use of the various arrays
 function pickTime(day) {
     let mvID = document.getElementById("MovieBox").value;
-    console.log("Selected: " + mvID + " " + day);
     let time = document.getElementById("mvHour");
     time.innerHTML = "";
     let newOption = document.createElement("option");
-    
-    
+
     if((day == 'MON') || (day == 'TUE'))
        {
        var dayIndex = 2;
@@ -208,25 +194,12 @@ function pickTime(day) {
                daySelected = 6;
        }
     
-    
-    console.log("DAY Selected = " + daySelected);
-    
     newOption.value = movieArray[movieArrayStart][dayIndex];
-    
     newOption.innerHTML = movieArray[movieArrayStart][dayIndex];
     time.options.add(newOption);
     playTime = newOption.value;
-    
-  
 }
-
-
-
-  
-    
-
-
-
+// Calculates the pricebased on time, day,fare type and seat type
 function seatSelected(){
     var timeSelected;
     let timeslot = playTime;
@@ -238,45 +211,28 @@ function seatSelected(){
         timeSelected = 3;
     if(timeslot == '21:00')
         timeSelected = 4;
-    
-    
-    
+
     let STA = parseInt(document.getElementById("STA").value);
     let STP = parseInt(document.getElementById("STP").value);
     let STC = parseInt(document.getElementById("STC").value);
     let FCA = parseInt(document.getElementById("FCA").value);
     let FCP = parseInt(document.getElementById("FCP").value);
     let FCC = parseInt(document.getElementById("FCC").value);
-    
-
-    console.log(STA,STP,STC,FCA,FCP,FCC);
-    
-    console.log("day = " + daySelected + " Time = " + timeSelected);
-    
-    console.log("D/F for discount or Full :  " + fareArray[daySelected][timeSelected]);
-    
+// Set fare array index(discount or full)    
    if(fareArray[daySelected][timeSelected] == 'D')
        var priceIndex = 1;
     else
         priceIndex = 2;
-    
-    
-    
+// Calculate total - work through entire array
     var totalFare = (STA * priceArray[0][priceIndex]) + (STP * priceArray[1][priceIndex]) + (STC * priceArray[2][priceIndex]) + (FCA * priceArray[3][priceIndex]) + (FCP * priceArray[4][priceIndex]) + (FCC * priceArray[5][priceIndex]);
-    
-    console.log("Total cost $" + totalFare);
-    
-    
-    addPrice = "$" + totalFare;
-   
+// Output to booking form to 2 decimal places
     let outputBox = document.getElementById("priceBox");
-    outputBox.value = addPrice;
-    
+    outputBox.value = "$" + totalFare.toFixed(2);   
 }
 
 
 var fareArray = [
-        //Day |12|15|18|21
+        //Day |12:00|15:00|18:00|21:00
         ['MON', 'D', 'D', 'D', 'D'],
         ['TUE', 'D', 'F', 'F', 'F'],
         ['WED', 'D', 'D', 'D', 'D'],
@@ -286,9 +242,7 @@ var fareArray = [
         ['SAT', 'F', 'F', 'F', 'F'],
     ];
 
-
-
-    // Seat|Mon&Wed&12pmWeekday|All other times 
+// Seat|Mon&Wed&12pmWeekday|All other times 
 var priceArray = [
     ['STA','14.00', '19.80'],
     ['STP','12.50','17.50'],
@@ -298,25 +252,3 @@ var priceArray = [
     ['FCC','21.00','24.00'],
     
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -206,7 +206,7 @@ if($tickets < "1")
    
 
     
-// Populate session ticket (seat) array for use on invoice
+// Populate session ticket (seat) array for use on invoice page
     
 $_SESSION[ticketNo]=array();
 $_SESSION[ticketCost]=array();  
@@ -222,8 +222,7 @@ foreach($seats as $userTicket){
         $i++;           
     }
     
-    
-  // $totalPrice += $userTicket * $priceArray[$i][$fareType];
+
     $i ++;
 }    
    
@@ -231,7 +230,7 @@ foreach($seats as $userTicket){
 
     
     
-// Notify of SUBMIT-POST success or failure
+// Notify of SUBMIT-POST failure
 if($errorFLAG == 1){    
     echo '<script language="javascript">';
     echo 'alert("ERROR ';
@@ -242,34 +241,21 @@ if($errorFLAG == 1){
 }
 else{
     
-    
-    $_SESSION[cart]=array();
- 
-    array_push($_SESSION[cart], $movieArray[$movieIndex]["NAME"], $fareArray[$day]["DAY"], $movieArray[$movieIndex][$playSlot], $fareType, $customer[name], $customer[email], $customer[mobile], $customer[card], $customer[expiry], $seats[STA], $seats[STP], $seats[STC], $seats[FCA], $seats[FCP], $seats[FCC]);
 
+    // Add items to session cart array
     $_SESSION[cart]=array(
     "MOVIE"=> $movieArray[$movieIndex]["NAME"],
     "DAY"=> $fareArray[$day]["DAY"], 
-    "TIME"=> $movieArray[$movieIndex][$playSlot],   
+    "TIME"=> $movieArray[$movieIndex][$playSlot],
+    "CNAME"=> $customer[name],
+    "CEMAIL"=> $customer[email],
+    "CMOBILE"=> $customer[mobile],    
+    "CCARD"=> $customer[card], 
+    "CEXPIRY"=> $customer[expiry]    
     );
     
-    echo '<script language="javascript">';
-    echo 'alert("Movie Selected\n';
-    echo 'Movie Code = ';
-    echo $movieArray[$movieIndex]["ID"];
-    echo '\nDay Selected = ';
-    echo $fareArray[$day]["DAY"];
-    echo '\nTime Selected = ';
-    echo $movieArray[$movieIndex][$playSlot];
-    echo '\nDiscount or Full\n';
-    echo $fareType; 
-    echo '\nNumber of tickets selected\n';
-    echo $tickets;
-    echo '\nTotal Cost\n';
-    echo $totalPrice; 
-    echo '")';
-    echo '</script>';
-    
+   
+    // Redirect to invoice page
     header('location: order.php');
 }
 
@@ -282,18 +268,16 @@ else{
 function processCart(){
     $SessionBookings = $_SESSION[cart];
     
-// SESSION CART INDEX
-// 0=movieID 1=Day 2=Time 3=Fare Type 4=CustName 5=CustEmail 6=CustMobile 7=CustCard 8=CustExpiry
-// 9=STA 10=STP 11=STC 12=FCA 13=FCP 14=FCC
+    // Display debug info
     
-    echo '<h1>-------- processCart() TEST ---------</h1><br>';
+    echo '<h1>-- Array Debug Area --</h1><br>';
     echo '<br>Session info<br>';
     print_r($SessionBookings);
-    echo '<br>';
+    echo '<br><br>';
     print_r($_SESSION[ticketNo]);
-    echo '<br>';
+    echo '<br><br>';
     print_r($_SESSION[ticketCost]);
-    echo '<br>';
+    echo '<br><br>';
     print_r($_SESSION[ticketName]);   
         
 
@@ -305,6 +289,29 @@ function printPage(){
     $ticketCost = $_SESSION[ticketCost];
     $ticketName = $_SESSION[ticketName];
     
+    //Calculate total before GST
+    
+   for($h = 0; $h < sizeof($ticketNo); $h++){
+       $total += $ticketNo[$h] * $ticketCost[$h];
+   }
+    // Calculate GST
+  $gst = $total * 0.1;
+    //Grand Total
+   $grandTotal = $total + $gst;
+    
+    //Populate tables
+    
+    echo '<tr class="information"><td colspan="3"><table><tr><td>';
+    echo $sessionBookings[CNAME];
+    echo '<br>';
+    echo $sessionBookings[CEMAIL];
+    echo '<br>';
+    echo $sessionBookings[CMOBILE];
+    echo '</td><td></td><td>';
+    echo 'Lunardo Cinemas Pty Ltd';
+    echo '<br>';
+    echo 'sales@lunardo.com';
+    echo '</td></tr></table></td></tr><tr class="heading"><td>Movie</td><td>Day</td><td>Time</td></tr>';
     echo '<tr class="details"><td>';
     echo $sessionBookings[MOVIE];
     echo '</td><td>';
@@ -312,10 +319,23 @@ function printPage(){
     echo '</td><td>';
     echo $sessionBookings[TIME];
     echo '</td></tr>';
+    echo '<tr class="heading" colspan="3"><td>Tickets</td><td>QTY</td><td>Price Each</td></tr>';
     
-   // for($i = 0 ; i < sizeof($ticketNo); $i++){
-   // }
-    
+   // Loop through tickets and add a table entry for each one
+   for($i = 0; $i < sizeof($_SESSION[ticketNo]); $i++){
+       echo '<tr class="item"><td>';
+       echo $ticketName[$i];
+       echo '</td><td>';
+       echo $ticketNo[$i];
+       echo '</td><td>$';
+       echo $ticketCost[$i];
+       echo '</td><td></tr>';
+   }
+    echo '<tr class="item"><td></td><td></td><td>GST $';
+    echo number_format((float)$gst, 2, '.', '');
+    echo '</td><tr class="total"><td></td><td></td><td>Total: $';
+    echo number_format((float)$grandTotal, 2, '.', '');
+    echo '</td></tr>';
    
     
     }

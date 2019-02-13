@@ -13,27 +13,14 @@ h2 {
     font-size: 18px;
 }
 
-/* test section */
-
-.testPHP {
-    background-color: white;
-    padding: 50px;
+html{
+    scroll-behavior: smooth;
 }
-
-
-
-
-
 
 /* Overide user agent stylesheet */
-
 body{
 margin: 0px;
-    background-color: black;
-}
-
-article{
-    
+background-color: black;
 }
 
 /*Logo */
@@ -50,6 +37,7 @@ header{
     z-index: 1;
     position: relative;
 }
+
 .logo img{
     width: 90px;
     height: 50px;
@@ -62,12 +50,7 @@ header{
     display: flex;
     justify-content: flex-end;
     background: black; 
-    padding-top: 5px;
-    
-   
-    
-
-      
+    padding-top: 5px;    
 }
 
 /* MENU STYLES */
@@ -75,14 +58,9 @@ header{
 nav{
     background: black; 
     position: fixed;
-   
 }
 
-
-
-
 nav a{
-    
     display: inline;
     text-decoration: none;
     color: red;
@@ -95,21 +73,18 @@ nav a{
     margin-right: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    letter-spacing: 2px;
-    
-    
+    letter-spacing: 2px;  
 }
+
 nav a:hover{
     background-color: rgba(100, 100, 100, .4);
 }
 
-/* State set by window position */
-
+/* State set by page position */
 a.active{
     box-shadow: 0 0 10px 5px #ffdb00;
     transition: .4s;
 }
-
 
 
 /* Top of Page Now Showing 
@@ -122,35 +97,30 @@ a.active{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .NowShowing h3 {
     color: white;   
 }
 
 .NowShowing{
-    
     text-align:center;
     padding-top: 90px;
     min-width: 800px;
-    height: 100vh;
-    min-height: 1200px;
+    min-height: 100vh;
 }
 
 .MoviePoster{
     height: 400px;
-    width: auto;
- 
-    
-    
+    width: auto;    
 }
+
 .grid-nowshowing{
-    
     display: grid;
     grid-gap: 2em;
     margin: 0 auto;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     max-width: 1200px;
-    width: 95%;
-    
+    width: 95%;   
 }
 
 .grid-item1{
@@ -176,7 +146,7 @@ a.active{
 
 /* Modal Functions */
 
-.modalDialog {
+.modalDialog{
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -187,6 +157,21 @@ a.active{
 	opacity:0;
 	transition: opacity 300ms ease-in;
 	pointer-events: none;
+    cursor: default;
+}
+.modalDialog table{
+    color: white;
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 10px;
+}
+
+.modalDialog table th{
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.modalDialog table td{
+    font-size: 17px;
 }
 
 .modalDialog:target {
@@ -196,13 +181,11 @@ a.active{
 
 .modalDialog > div {
 	width: 800px;
-   
 	position: relative;
 	margin: 7% auto;
 	padding: 10px 10px 10px 20px;
 	border-radius: 10px;
-	background: black;
-	
+	background: black;	
 }
 
 .modalDialog p{
@@ -212,72 +195,68 @@ a.active{
 .close {
 	background: grey;
 	color: white;
-	line-height: 25px;
+	line-height: 35px;
 	position: absolute;
-	right: -12px;
+	right: -1px;
 	text-align: center;
-	top: -10px;
-	width: 24px;
+	top: -1px;
+	width: 34px;
+    font-size: 20px;
 	text-decoration: none;
 	font-weight: bold;
-	border-radius: 12px;
-	box-shadow: 1px 1px 3px #000;
+	border-radius: 17px;
+	box-shadow: 2px 2px 3px #111;
 }
 
 .close:hover { background: red; }
 
 .button {
-  background-color: red;
-  border: solid;
-  color: rgb(200, 0, 0, .8);
-  padding: 2px 10px;
+  background-color: #E11D1D;
+  color: rgb(200, 0, 0, .5);
+  padding:1px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
-  margin: 4px 4px;
+  margin: 2px 4px;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 .button:hover{
-    background-color: rgb(180, 0, 0, .6);
+    background-color: rgb(180, 0, 0, .8);
 }
  
-
 
 /* Seating section
 --------------------------
 */
 
 .parrallax2{
-    
     background-image: url(../../../media/seats.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
     
 }
 
 .Seats{
-    
     text-align: center;
     padding-top: 90px;
     min-width: 800px;
     min-height: 100vh;
-    letter-spacing: 2px;
-    
+    letter-spacing: 2px;  
 }
 
 .Seat{
     max-height: 400px;
     min-height: 200px;
-    width: auto;
-    
-    
+    width: auto;  
 }
-.grid-seats {
-    
+
+.grid-seats{
     display: grid;
     grid-gap: 1em;
     margin: 0 auto;
@@ -285,27 +264,21 @@ a.active{
     background-color:;
     max-width: 1200px;
     width: 95%;
-
+    padding-top: 60px;
 }
 
-
 .grid-item{
-   
-    font-size: px;
-    text-align: center;
-    
+    text-align: center;    
 }
 
 .grid-item:first-child{
-   
     font-size: 20px;
-    
     text-align: center;
     grid-column: auto / span 2;
     background-color: rgba(150, 0, 0, .2);
 }
 
-.Seats div {
+.Seats div{
     font-size: 20px;
     color: white;
 }
@@ -318,7 +291,6 @@ a.active{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
 }
 
 .Booking h2{
@@ -330,40 +302,28 @@ a.active{
 }
 
 .Booking{
-
     margin: auto;
     width: 100%;
-    border-radius: 25px;
-    
-  
+    min-height: 100vh; 
 }
 
 .Dropdowns{
-    
-    
-    
     column-count: 2;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, .9);
     max-width: 80%;
     margin: 2rem auto;
-
     padding: 3rem;
     font-family: 'Sanchez';
     font-weight: 600;
-    letter-spacing: 2px
-        
-    
-    
-    
+    letter-spacing: 2px;
+}
+.Dropdowns fieldset{
+    border-radius: 5px;
+    border-style: double;
 }
 
-
-
 .Dropdowns select{
-    
-    
-    
     font-family: 'Sanchez';
     font-size: 20px;
     width: 50%;
@@ -375,15 +335,9 @@ a.active{
     display: block;
     color: black;
     font-size: 25px;
-    padding: 2px;
+    padding: 4px;
     width: 200px;
-    
 }
-
-
-
-    
-
 
 .Dropdowns input{
     border-radius: 5px;
@@ -393,11 +347,9 @@ a.active{
     font-size: 20px;
     padding-bottom: 5px;
     background-color: lightgrey;
-    
 }
 
 .Dropdowns .submit{
-    
     width: 50%;
     margin-left: 35px;
     font-size: 20px;
@@ -408,13 +360,6 @@ a.active{
     padding-top: 20px;
     background-color: rgba(0, 250, 0, .1);
     box-shadow: 20px;
-    
-    
-    
-    
-   
-    
-    
 }
 
 
@@ -426,42 +371,35 @@ a.active{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    padding-top: 60px;
 }
-
-
 
 .About h2{
     text-align: center;
     color: white;
     font-size: 25px;
     letter-spacing: 2px;
-    
 }
 
 .About video{
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    height: 50vh;
-    
     display: block;
 }
 
 /* Debug Area */
 
 .DebugArea {
-    
     border: solid;
-    margin: 4px;
+    margin: 10px;
     border-width: thin;
     background-color: azure;
-    
 }
 
 /* Media Query for deteriming layout on differn't screen sizes
 
-Work in progress. Will need some fine tuning to fit  the menu bar in more efficently
+Work in progress. Will need some fine tuning to fit  he menu bar in more efficently
 or possible use of a hamburger style
 
 ----Note to self increase min width when finished testing grids---
@@ -476,7 +414,6 @@ or possible use of a hamburger style
         
     }   
     
-
     nav li{
         flex 1 1 0;
     }
