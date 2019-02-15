@@ -335,7 +335,7 @@ a.active{
     display: block;
     color: black;
     font-size: 25px;
-    padding: 4px;
+    padding: 1px;
     width: 200px;
 }
 
@@ -351,7 +351,7 @@ a.active{
 
 .Dropdowns .submit{
     width: 50%;
-    margin-left: 35px;
+    margin-left: 150px;
     font-size: 20px;
     font-family: 'Sanchez';
     font-weight: 900;
@@ -360,8 +360,8 @@ a.active{
     padding-top: 20px;
     background-color: rgba(0, 250, 0, .1);
     box-shadow: 20px;
+    margin-top: 5px;
 }
-
 
 /* Section 4 - About  */
 
@@ -387,6 +387,7 @@ a.active{
     width: auto;
     display: block;
 }
+
 
 /* Debug Area */
 

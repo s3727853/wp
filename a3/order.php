@@ -6,7 +6,7 @@
 
 <!-- 
 **** The html for the table elements is generated in PHP printPage() 
-* There is a function inline for a random invoice number for asthetics and current day for invoice date *
+* There is a PHP script inline for a random invoice number for asthetics and current day for invoice date *
 -->
 
 <html lang='en'>
@@ -54,9 +54,7 @@
         </table>
     </div>
         
-<!-- CSS link is provided down here so that it as applied after the PHP has generated the table elements -->
-        
-<link id='stylecss' type="text/css" rel="stylesheet" href="css/invoicestyle.css">               
+          
 
         
 <!-- Inline script to remove debug area -->
@@ -76,10 +74,13 @@
 <div class="debug" id="debug">
    <?PHP
         processCart();
+        printCode($_GET);
     ?>
 
 </div>  
+<!-- CSS link is provided down here so that it as applied after the PHP has generated the table elements -->
         
+<link id='stylecss' type="text/css" rel="stylesheet" href="css/invoicestyle.css">             
         
 </body>
 </html>

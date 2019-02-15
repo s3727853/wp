@@ -7,10 +7,10 @@ var playTime;
 
 
 // Called through onload event in <body>
-// Populates the six <select> fields with a class="ten" with select options
+// Populates the six <select> fields with for number of tickets per seat (0 through 10)
 
 function countten() 
-{
+{    
     console.log("Count Ten seat select funct called from Body.");
     var boxes = document.getElementsByClassName("ten");
     for(var seatitems = 0; seatitems <=5; seatitems++)

@@ -2,9 +2,21 @@
 <?php
       require_once("tools.php");
       if(isset($_POST['submit'])){
-      order();
+          order();
+          // Handle user data if POST fails so they don't have to retype everything
+          // Values are printed back into appropriate fields
+          $name = $_POST[cust][name];
+          $email = $_POST[cust][email];
+          $mobile = $_POST[cust][mobile];
+          $card = $_POST[cust][card];
+          $expiry = $_POST[cust][expiry];
+         
       }
+
+    
 ?>
+
+
 <html lang='en'>
   <head>
     <script src='../wireframe.js'></script>
@@ -223,7 +235,7 @@
         <section class="Booking">
             <h2>Bookings</h2>
                         <div class="Dropdowns" >
-                            <form method='post' action="" value='submit'>
+                            <form method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" value='submit'>
                             <fieldset><legend>Booking Details</legend>
                             <label>Movie</label> 
                             <select name="movie[id]" id="MovieBox" required onchange="populate(this.id, 'mvDay')">
@@ -232,17 +244,17 @@
                             <option value="RMC">A Star is Born</option>
                             <option value="ANM">Ralph Breaks the Internet</option>
                             <option value="AHF">A Boy Erased</option>
-                            </select>
+                            </select><span id="errorID" class="errorSpan" style="visibility: hidden;"></span>
                             <label>Day</label>
                             <select name="movie[day]"  id="mvDay" required onchange="pickTime(this.value)">
-                            </select>
+                            </select><span id="errorDAY" class="errorSpan" style="visibility: hidden;"></span>
                             <label>Time</label>
                             <select name="movie[hour]" id="mvHour" required>
-                            </select>
+                            </select><span id="errorTIME" class="errorSpan" style="visibility: hidden;"></span>
                                 <label>Tickets</label>
                             <select name="seats[STA]" class="ten" id="STA" onchange="seatSelected()">
                                 <option value="0">Standard Adult</option>
-                            </select>
+                            </select><span id="errorTICKET" class="errorSpan" style="visibility: hidden;"></span>
                             <select name="seats[STP]" class="ten" id="STP" onchange="seatSelected()">
                                 <option value="0">Standard Concession</option>
                             </select>    
@@ -265,14 +277,29 @@
                     </fieldset>            
                     <div class="custDetails">            
                     <fieldset><legend>Payment Details</legend>            
-                    <label>Name:</label><input type="text" name="cust[name]" required pattern="^[A-Za-z \-.']{1,110}$" title="Enter a valid name">
-                    <label>Email:</label><input type="email" name="cust[email]" required >
-                    <label>Mobile:</label><input type="text" pattern="^(\(04\)|04|\+614)( ?\d){8}$" maxlength="10" minlenght="10" name="cust[mobile]" required title="Should be a valid Australian mobile number">
-                    <label>Credit Card:</label><input type="text" name="cust[card]" required pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$" title="Card must have a total of 16 numbers and NO spaces. Visa starts with a 4. Master card starts 55" >
-                    <label>Expiry:</label><input type="month" name="cust[expiry]" required id="expiry">     
+                    <label>Name:</label><input type="text" name="cust[name]" required pattern="^[A-Za-z \-.']{1,110}$" title="Enter a valid name" value="<?PHP print $name; ?>">
+                    <span id="errorNAME" class="errorSpan" style="visibility: hidden;"></span>
+                        
+                    <label>Email:</label><input type="email" name="cust[email]" required value="<?PHP print $email; ?>">
+                    <span id="errorEMAIL" class="errorSpan" style="visibility: hidden;"></span>
+                        
+                    <label>Mobile:</label><input type="text" pattern="^(\(04\)|04|\+614)( ?\d){8}$" maxlength="10" minlenght="10" name="cust[mobile]" required value="<?PHP print $mobile; ?>" title="Should be a valid Australian mobile number">
+                    <span id="errorMOBILE" class="errorSpan" style="visibility: hidden;"></span>    
+                        
+                    <label>Credit Card:</label><input type="text" name="cust[card]" required pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$" value="<?PHP print $card; ?>" title="Card must have a total of 16 numbers and NO spaces. Visa starts with a 4. Master card starts 55" >
+                    <span id="errorCARD" class="errorSpan" style="visibility: hidden;"></span>
+                        
+                    <label>Expiry:</label><input type="month" name="cust[expiry]" required id="expiry" value="<?PHP print $expiry; ?>">
+                    <span id="errorEXPIRY" class="errorSpan" style="visibility: hidden;"></span>
+                        
                     <label>Total</label><input type="text" readonly id="priceBox">
                     </fieldset>
                     <input type="submit" class="submit" name="submit" value="Confirm Booking">
+                        
+                        <!-- will throw an internal javascript error as function won't exist if there was no errors -->
+                        <script>
+                            error();
+                        </script>
                 </div>            
                 </form>           
                 </div>
